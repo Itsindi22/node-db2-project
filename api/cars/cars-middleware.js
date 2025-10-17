@@ -1,5 +1,7 @@
+const db = require ('./cars-model')
+
 const checkCarId = (req, res, next) => {
-  // DO YOUR MAGIC
+next()
 }
 
 const checkCarPayload = (req, res, next) => {
@@ -12,4 +14,10 @@ const checkVinNumberValid = (req, res, next) => {
 
 const checkVinNumberUnique = (req, res, next) => {
   // DO YOUR MAGIC
+}
+module.exports = {
+  checkCarId,
+  checkCarPayload,
+  checkVinNumberUnique,
+  checkVinNumberUnique,
 }
