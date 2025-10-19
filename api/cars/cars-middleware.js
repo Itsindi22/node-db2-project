@@ -1,7 +1,17 @@
-const db = require ('./cars-model')
+const Car = require('./cars-model')
 
-const checkCarId = (req, res, next) => {
-next()
+const checkCarId = async (req, res, next) => {
+  try {
+    const car = await Car.getById(req.params.id)
+    if (!car) {
+
+    } else {
+      next()
+    }
+    // res.json(cars)  <-- make sure this line is gone
+  } catch (err) {
+    next(err)
+  }
 }
 
 const checkCarPayload = (req, res, next) => {
@@ -15,6 +25,7 @@ const checkVinNumberValid = (req, res, next) => {
 const checkVinNumberUnique = (req, res, next) => {
   // DO YOUR MAGIC
 }
+
 module.exports = {
   checkCarId,
   checkCarPayload,

@@ -15,8 +15,12 @@ res.json (cars)
 })
 
 router.get('/:id',checkCarId, async (req,res,next) => {
-res.json(`getting car  with id ${req.params.id}`)
-})
+try {
+const car = await  Car.getById(req.params.id)
+res.json (car)
+} catch (err) {
+    next(err)
+}})
 
 router.post('/', async (req,res,next) => {
     res.json('posting new car')

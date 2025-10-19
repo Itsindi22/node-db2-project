@@ -1,10 +1,12 @@
-const db = require ('../../data/db-config')
+// cars-model.js
+const db = require('../../data/db-config')
+
 const getAll = () => {
   return db('cars')
 }
 
-const getById = () => {
-  // DO YOUR MAGIC
+const getById = (id) => {
+  return db('cars').where('id', id).first() // also add () to .first
 }
 
 const create = () => {
