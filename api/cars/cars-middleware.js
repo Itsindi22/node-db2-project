@@ -36,6 +36,7 @@ const checkCarPayload = (req, res, next) => {
 }
 
 const checkVinNumberValid = (req, res, next) => {
+  const {vin} =req.body
   if (vin.validate(req.params.vin)) {
 next()
   } else {
