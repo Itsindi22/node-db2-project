@@ -21,7 +21,8 @@ router.get('/:id',checkCarId, async (req,res,next) => {
 res.json(req.car)
 })
 
-router.post('/',
+router.post(
+    '/',
     checkCarPayload,
     checkVinNumberValid,
     checkVinNumberUnique,
